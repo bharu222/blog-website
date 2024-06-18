@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.godaddy.com/resources/wp-content/uploads/2021/02/how-to-start-blog-featured-XcRle6.tmp_.jpeg?size=3840x0') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.5);
+            color: #a355a6;
+            padding: 1rem 0;
+            text-align: left;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            text-align: right;
+        }
+        nav a {
+            color: #c152b1;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        main {
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            margin: 2rem;
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.5);
+            color: #121111;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        #new-post {
+            margin-bottom: 2rem;
+        }
+        #new-post form {
+            display: flex;
+            flex-direction: column;
+        }
+        #new-post input, #new-post textarea, #new-post button {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+        }
+        #new-post button {
+            background-color: #c152b1;
+            color: #fff;
+            cursor: pointer;
+        }
+        /* Style for the animated toy */
+        .animated-toy {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: purple;
+            border-radius: 50%;
+            cursor: pointer;
+            animation: move 1s infinite;
+        }
+        .animated-toy:hover {
+            animation-play-state: paused;
+        }
+        @keyframes move {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="login.html">Login</a>
+            <a href="/admin">Admin</a>
+        </nav>
+    </header>
+    <main>
+        <section id="new-post">
+            <h2>Add a New Post</h2>
+            <form id="post-form">
+                <input type="text" id="post-title" placeholder="Title" required>
+                <textarea id="post-content" placeholder="Write your blog post here..." required></textarea>
+                <input type="file" id="post-image">
+                <button type="submit">Add Post</button>
+            </form>
+        </section>
+        <section id="posts">
+            <h2>Blog Posts</h2>
+            <!-- Blog posts will be dynamically added here -->
+        </section>
+    </main>
+    <div class="animated-toy" onclick="window.location.href='ai.html'"></div>
+    <script src="script.js"></script>
+</body>
+</html>

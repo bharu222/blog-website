@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Title Generator</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: url('https://www.godaddy.com/resources/wp-content/uploads/2021/02/how-to-start-blog-featured-XcRle6.tmp_.jpeg?size=3840x0') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            position: relative;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #c152b1;
+            color: #fff;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AI Blog Title Generator</h2>
+        <form id="title-generator-form">
+            <div class="form-group">
+                <label for="keywords">Enter Keywords or Description:</label>
+                <textarea id="keywords" name="keywords" rows="4" required></textarea>
+            </div>
+            <button type="submit">Generate Title</button>
+        </form>
+        <div class="result" id="result" style="display: none;">
+            <h3>Generated Title:</h3>
+            <p id="generated-title"></p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titleForm = document.getElementById('title-generator-form');
+            const resultDiv = document.getElementById('result');
+            const generatedTitle = document.getElementById('generated-title');
+
+            titleForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const keywords = titleForm.keywords.value;
+
+                // Placeholder function to simulate title generation
+                const generateTitle = (keywords) => {
+                    const keywordArray = keywords.split(',').map(keyword => keyword.trim());
+                    const titleStart = [
+                        "Exploring",
+                        "The Ultimate Guide to",
+                        "Understanding",
+                        "Top 10 Tips for",
+                        "How to Master",
+                        "The Secrets of",
+                        "A Beginner's Guide to",
+                        "Advanced Strategies for",
+                        "The Future of",
+                        "Why You Should Consider"
+                    ];
+                    const randomStart = titleStart[Math.floor(Math.random() * titleStart.length)];
+                    const randomKeyword = keywordArray[Math.floor(Math.random() * keywordArray.length)];
+                    return `${randomStart} ${randomKeyword.charAt(0).toUpperCase() + randomKeyword.slice(1)}`;
+                };
+
+                const title = generateTitle(keywords);
+                generatedTitle.textContent = title;
+                resultDiv.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

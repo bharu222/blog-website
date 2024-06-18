@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: url('https://www.godaddy.com/resources/wp-content/uploads/2021/02/how-to-start-blog-featured-XcRle6.tmp_.jpeg?size=3840x0') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            position: relative;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #c152b1;
+            color: #fff;
+            cursor: pointer;
+        }
+        .toggle-form {
+            margin-top: 10px;
+            cursor: pointer;
+            color: #c152b1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="form-title">Sign In</h2>
+        <form id="auth-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div id="additional-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="account-type">Account Type</label>
+                    <select id="account-type" name="account-type">
+                        <option value="personal">Personal</option>
+                        <option value="professional">Professional</option>
+                        <option value="educational">Educational</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" id="submit-button">Sign In</button>
+        </form>
+        <div class="toggle-form" id="toggle-form">
+            Don't have an account? Sign Up
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formTitle = document.getElementById('form-title');
+            const authForm = document.getElementById('auth-form');
+            const additionalFields = document.getElementById('additional-fields');
+            const submitButton = document.getElementById('submit-button');
+            const toggleForm = document.getElementById('toggle-form');
+
+            let isSignUp = false;
+
+            toggleForm.addEventListener('click', function() {
+                isSignUp = !isSignUp;
+                if (isSignUp) {
+                    formTitle.textContent = 'Sign Up';
+                    submitButton.textContent = 'Sign Up';
+                    toggleForm.textContent = 'Already have an account? Sign In';
+                    additionalFields.style.display = 'block';
+                } else {
+                    formTitle.textContent = 'Sign In';
+                    submitButton.textContent = 'Sign In';
+                    toggleForm.textContent = 'Don\'t have an account? Sign Up';
+                    additionalFields.style.display = 'none';
+                }
+            });
+
+            authForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const username = authForm.username.value;
+                const password = authForm.password.value;
+
+                if (isSignUp) {
+                    const email = authForm.email.value;
+                    const accountType = authForm['account-type'].value;
+                    console.log(`Sign Up - Username: ${username}, Password: ${password}, Email: ${email}, Account Type: ${accountType}`);
+                    // Implement sign-up logic here
+                } else {
+                    console.log(`Sign In - Username: ${username}, Password: ${password}`);
+                    // Implement sign-in logic here
+                }
+
+                // Clear form fields after submission
+                authForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

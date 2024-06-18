@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: url('https://cms.involve.me/blog/landing-page-trends/landing-page-trendsL.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 10px;
+            width: 60%;
+            max-width: 800px; /* Set a maximum width for better responsiveness */
+        }
+        .quotes {
+            font-size: 2rem; /* Larger font size for better readability */
+            margin-bottom: 30px;
+            height: 120px; /* Increased height to accommodate larger text */
+            width:540px;
+            overflow: hidden;
+            position: relative;
+            line-height: 1.5; /* Improved line spacing */
+        }
+        .quotes span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            animation: fade 10s linear infinite;
+        }
+        .quotes span:nth-child(1) { animation-delay: 0s; }
+        .quotes span:nth-child(2) { animation-delay: 5s; }
+        @keyframes fade {
+            0% { opacity: 0; transform: translateY(-100%); }
+            10%, 40% { opacity: 1; transform: translateY(0); }
+            50% { opacity: 0; transform: translateY(100%); }
+            100% { opacity: 0; }
+        }
+        .enter-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background-color: #c152b1;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .enter-button:hover {
+            background-color: #a355a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quotes">
+            <span>“Love yourself first and everything else falls into line.” – Lucille Ball</span>
+            <span>“Talk to yourself like someone you love.” – Brené Brown</span>
+        </div>
+        <button class="enter-button" onclick="window.location.href='index.html'">Enter</button>
+    </div>
+</body>
+</html>
